@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://dh3jwyrfe53fa"]
+
+[ext_resource type="Script" path="res://scenes/main-scene.gd" id="1_u0jvo"]
+[ext_resource type="PackedScene" uid="uid://c5wf6yy6ct1wm" path="res://scenes/ui/SettingsControls.tscn" id="2_27s1s"]
+[ext_resource type="PackedScene" uid="uid://copsyqsr0tbm8" path="res://scenes/TerrianMap.tscn" id="2_33ew6"]
+[ext_resource type="PackedScene" uid="uid://c8bsuhdbq2cce" path="res://scenes/characters/player.tscn" id="6_wvlgp"]
+
+[node name="MainScene" type="Node2D"]
+position = Vector2(1, 1)
+script = ExtResource("1_u0jvo")
+
+[node name="TerrianMap" parent="." instance=ExtResource("2_33ew6")]
+
+[node name="Player" parent="." instance=ExtResource("6_wvlgp")]
+top_level = true
+z_index = 2
+
+[node name="SettingsControls" parent="." instance=ExtResource("2_27s1s")]
