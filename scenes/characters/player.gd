@@ -19,7 +19,7 @@ func _process(delta):
 	input_direction = Vector2(vInput, hInput).normalized()
 	var new_position = world_position + input_direction
 	if(new_position != world_position && time > DURATION):
-		world_position = new_position.round()
+		world_position = new_position
 		time = 0
 	
 	update_animation_parameters();

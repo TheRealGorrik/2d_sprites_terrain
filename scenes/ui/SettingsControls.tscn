@@ -24,7 +24,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -1520.0
-offset_bottom = -880.0
+offset_bottom = -820.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -138,5 +138,19 @@ max_value = 1.0
 step = 0.001
 
 [node name="GainText" type="TextEdit" parent="ViewPort/Pane/MarginContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+
+[node name="PersistenceLabel" type="Label" parent="ViewPort/Pane/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Pers"
+
+[node name="PersistenceSlider" type="HSlider" parent="ViewPort/Pane/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 5.0
+step = 0.01
+
+[node name="PersistenceText" type="TextEdit" parent="ViewPort/Pane/MarginContainer/VBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2

@@ -9,6 +9,7 @@ var rootPath = "ViewPort/Pane/MarginContainer/VBoxContainer/GridContainer/"
 @onready var octaveSlider = get_node(rootPath + "OctaveSlider")
 @onready var lacunaritySlider = get_node(rootPath + "LacunaritySlider")
 @onready var gainSlider = get_node(rootPath + "GainSlider")
+@onready var persistenceSlider = get_node(rootPath + "PersistenceSlider")
 
 @onready var world_position_text = get_node(rootPath + "WorldPositionText")
 @onready var noise_seed_text = get_node(rootPath + "NoiseSeedText")
@@ -16,15 +17,17 @@ var rootPath = "ViewPort/Pane/MarginContainer/VBoxContainer/GridContainer/"
 @onready var octave_text = get_node(rootPath + "OctaveText")
 @onready var lacunarity_text = get_node(rootPath + "LacunarityText")
 @onready var gain_text = get_node(rootPath + "GainText")
+@onready var persistence_text = get_node(rootPath + "PersistenceText")
 
 @export var noiseSeed: int = 1
 @export var frequency: float = 0.035
 @export var octaves: int = 6
 @export var lacunarity: float = 2.0
 @export var gain: float = 0.25
+@export var persistence: float = 0.5
 @export var scaler: float = 1
 
-var noise
+var noise: FastNoiseLite
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	
@@ -34,6 +37,7 @@ func _ready():
 	octaveSlider.value = octaves
 	lacunaritySlider.value = lacunarity
 	gainSlider.value = gain
+	persistenceSlider.value = persistence	
 	
 	setTextValues()
 	setNoiseValues()
@@ -47,12 +51,13 @@ func _process(delta):
 	pass
 
 func setNoiseValues():	
-	noise.noise_type = FastNoiseLite.TYPE_SIMPLEX_SMOOTH
+	noise.noise_type = FastNoiseLite.TYPE_VALUE_CUBIC
 	noise.seed = noiseSeedSlider.value
 	noise.frequency = frequencySlider.value
 	noise.fractal_octaves = octaveSlider.value
 	noise.fractal_lacunarity = lacunaritySlider.value
 	noise.fractal_gain = gainSlider.value	
+#	noise.persistence = persistenceSlider.value
 	pass
 
 func setTextValues():	
@@ -61,4 +66,5 @@ func setTextValues():
 	octave_text.text = var_to_str(octaveSlider.value)
 	lacunarity_text.text = var_to_str(lacunaritySlider.value)
 	gain_text.text = var_to_str(gainSlider.value)
+	persistence_text.text = var_to_str(persistenceSlider.value)
 	pass

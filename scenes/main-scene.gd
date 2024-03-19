@@ -19,14 +19,14 @@ var time = 0.0
 const DURATION = 0.1
 var prevWorldPosition = Vector2.ZERO
 
-func _input(event):	
-	if(event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_WHEEL_UP):
-		scaler += 0.1
-		scaleVector = Vector2(scaler, scaler)		
-	if(event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_WHEEL_DOWN):
-		scaler -= 0.1
-		scaleVector = Vector2(scaler, scaler)		
-	pass
+#func _input(event):	
+#	if(event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_WHEEL_UP):
+#		scaler += 0.1
+#		scaleVector = Vector2(scaler, scaler)		
+#	if(event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_WHEEL_DOWN):
+#		scaler -= 0.1
+#		scaleVector = Vector2(scaler, scaler)		
+#	pass
 
 func _process(_delta):		
 	handleTileMap(false)
@@ -39,9 +39,7 @@ func _ready():
 
 func handleTileMap(init: bool):
 		
-	var cellSize = terrain.tileMap.get("cell_quadrant_size")
-	var scaledCellSize = cellSize * scaler
-	
+	var cellSize = terrain.tileMap.get("cell_quadrant_size")	
 	var windowSize = get_viewport_rect().size
 	var tiledWindow = windowSize / cellSize
 	var wid = round(tiledWindow.x)
@@ -50,7 +48,7 @@ func handleTileMap(init: bool):
 	if(init):
 		position = center
 		terrain.tileMap.position = -(windowSize) / 2
-		player.position = center# - (Vector2(cellSize, cellSize) * 2)
+		player.position = center - (Vector2(cellSize, cellSize) * 2)
 		prevWorldPosition = player.world_position
 		worldPositionLabel.text = var_to_str(player.world_position)
 
