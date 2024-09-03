@@ -9,7 +9,11 @@
 position = Vector2(1, 1)
 script = ExtResource("1_u0jvo")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.25, 0.25)
+
 [node name="TerrianMap" parent="." instance=ExtResource("2_33ew6")]
+z_index = -10
 scale = Vector2(4, 4)
 
 [node name="Player" parent="." instance=ExtResource("6_wvlgp")]

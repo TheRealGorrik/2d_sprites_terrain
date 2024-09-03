@@ -33,7 +33,6 @@ func _process(_delta):
 	pass
 
 func _ready():	
-		
 	handleTileMap(true)
 	pass # Replace with function body.
 
